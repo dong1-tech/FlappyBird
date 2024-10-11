@@ -7,12 +7,18 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [SerializeField] private GameObject _gameOverCanvas;
+    [SerializeField] private GameObject _gameStartCanvas;
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
         }
+        Time.timeScale = 0;
+    }
+    public void GameStart()
+    {
+        _gameStartCanvas.SetActive(false);
         Time.timeScale = 1;
     }
     public void GameOver()
